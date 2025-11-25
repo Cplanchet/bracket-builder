@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --typo-label: bold 12px 'Open Sans';
+  --typo-message: normal 12px 'Open Sans';
+  --typo-body: normal 16px 'Open Sans';
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: rgb(0, 101, 160);
+    --on-primary: rgb(255, 255, 255);
+    --background: rgb(26, 26, 26);
+    --on-background: rgb(255, 255, 255);
+    --error: rgb(177, 20, 20);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary: rgb(0, 101, 160);
+    --on-primary: rgb(255, 255, 255);
+    --background: rgb(255, 255, 255);
+    --on-background: rgb(0, 0, 0);
+    --error: rgb(177, 20, 20);
+  }
+}
+
+body {
+  margin: 0;
+  font: var(--typo-body);
+  background-color: var(--background);
+  color: var(--on-background);
+}
+
+.page {
+  padding: 1rem;
+}

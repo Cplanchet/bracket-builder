@@ -1,0 +1,40 @@
+.bb-textfield-root {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bb-textfield-input {
+  color: var(--on-background);
+  background-color: var(--background);
+  border: 1px solid var(--on-background);
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  transition: border 0.1s ease-out;
+  &:focus {
+    border: 1px solid var(--primary);
+  }
+}
+
+.bb-textfield-label {
+  font: var(--typo-label);
+  transition: color 0.1s ease-out;
+}
+
+.bb-textfield-root:has(> .bb-textfield-input:focus) .bb-textfield-label {
+  color: var(--primary);
+}
+
+.bb-textfield-root:has(> .bb-textfield-input.error) .bb-textfield-label {
+  color: var(--error);
+}
+
+input.error,
+input.error:focus {
+  border: 1px solid var(--error);
+}
+
+.inline-error {
+  color: var(--error);
+  font: var(--typo-message);
+}
