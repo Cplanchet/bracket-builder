@@ -3,12 +3,17 @@
   --typo-label: bold 12px 'Open Sans';
   --typo-message: normal 12px 'Open Sans';
   --typo-body: normal 16px 'Open Sans';
+  --typo-button: normal 14px 'Open Sans';
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: rgb(0, 101, 160);
+    --primary: hsl(202, 100%, 30%);
+    --primary-shadow: hsl(202, 100%, 20%);
+    --primary-shadow-darker: hsl(202, 100%, 15%);
     --on-primary: rgb(255, 255, 255);
-    --background: rgb(26, 26, 26);
+    --background: hsl(0, 0%, 10%);
+    --background-shadow: hsl(0, 0%, 5%);
+    --background-shadow-darker: hsl(0, 0%, 0%);
     --on-background: rgb(255, 255, 255);
     --error: rgb(177, 20, 20);
   }
@@ -16,9 +21,13 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    --primary: rgb(0, 101, 160);
+    --primary: hsl(202, 100%, 30%);
+    --primary-shadow: hsl(202, 100%, 20%);
+    --primary-shadow-darker: hsl(202, 100%, 15%);
     --on-primary: rgb(255, 255, 255);
-    --background: rgb(255, 255, 255);
+    --background: hsl(0, 0%, 100%);
+    --background-shadow: hsl(0, 0%, 95%);
+    --background-shadow-darker: hsl(0, 0%, 90%);
     --on-background: rgb(0, 0, 0);
     --error: rgb(177, 20, 20);
   }
@@ -33,4 +42,8 @@ body {
 
 .page {
   padding: 1rem;
+}
+
+.bb-team-list-delete-action button.bb-text {
+  color: var(--error);
 }

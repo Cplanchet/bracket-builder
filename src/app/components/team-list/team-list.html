@@ -1,13 +1,21 @@
 <table>
   <thead>
     <tr>
-      <th>Teams</th>
+      <th colspan="2">Teams</th>
     </tr>
   </thead>
   <tbody>
     @for (team of teams(); track $index) {
     <tr>
       <td>{{team}}</td>
+      <td>
+        <bb-icon-button variant="text" class="bb-team-list-delete-action" icon="delete"
+          (press)="onDeleteButtonPress(team)"></bb-icon-button>
+      </td>
+    </tr>
+    } @empty {
+    <tr>
+      <td colspan="2">Not teams have been added yet...</td>
     </tr>
     }
   </tbody>

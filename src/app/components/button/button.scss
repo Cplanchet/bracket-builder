@@ -1,0 +1,56 @@
+@mixin button-syle {
+  .bb-button {
+    padding: 0.5rem 1rem;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 20px;
+    &:active {
+      box-shadow: none;
+    }
+    font: var(--typo-button);
+    min-width: 24px;
+    min-height: 24px;
+  }
+
+  .bb-primary {
+    background-color: var(--primary);
+    color: var(--on-primary);
+    border: none;
+    &:hover {
+      background-color: var(--primary-shadow);
+    }
+    &:active {
+      background-color: var(--primary-shadow-darker);
+    }
+  }
+
+  .bb-secondary {
+    border: 2px solid var(--primary);
+    color: var(--on-background);
+    &:hover {
+      border-color: var(--primary-shadow);
+    }
+    &:active {
+      border-color: var(--primary-shadow-darker);
+    }
+  }
+
+  .bb-text,
+  .bb-secondary {
+    background: none;
+    color: var(--on-background);
+
+    &:hover {
+      background-color: var(--background-shadow);
+    }
+    &:active {
+      background-color: var(--background-shadow-darker);
+    }
+  }
+
+  .bb-text {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+@include button-syle();

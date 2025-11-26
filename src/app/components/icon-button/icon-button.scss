@@ -1,0 +1,12 @@
+@import '../button/button.scss';
+@include button-syle;
+.bb-button {
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+.bb-button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}

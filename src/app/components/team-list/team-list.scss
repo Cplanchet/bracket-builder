@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  border: 2px solid var(--on-background);
+  & tr {
+    border-bottom: 1px solid var(--on-background);
+  }
+  & td,
+  & th {
+    padding: 1rem 0.5rem;
+  }
+
+  & thead {
+    background-color: var(--primary);
+    color: var(--on-primary);
+  }
+}

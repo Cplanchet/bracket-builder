@@ -1,6 +1,6 @@
 <main class="page">
   <h2>Add Teams</h2>
-  <bb-team-list [teams]="this.teams()"></bb-team-list>
+  <bb-team-list [teams]="this.teams()" (delete)="deleteTeam($event)"></bb-team-list>
   <bb-textfield id="team" [(value)]="this.fieldValue" label="Team name" [error]="fieldError()"></bb-textfield>
-  <button (click)="this.onSubmitEntry()">Add</button>
+  <bb-button (press)="this.onSubmitEntry()">Add Team</bb-button>
 </main>
