@@ -24,6 +24,7 @@
   }
 
   .bb-secondary {
+    padding: calc(0.5rem - 2px) calc(1rem - 2px);
     border: 2px solid var(--primary);
     color: var(--on-background);
     &:hover {
@@ -50,6 +51,16 @@
   .bb-text {
     border: none;
     box-shadow: none;
+  }
+}
+
+.bb-button-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  &.material-symbols-outlined {
+    font-size: 14px;
   }
 }
 

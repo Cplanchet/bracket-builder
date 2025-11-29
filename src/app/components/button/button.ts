@@ -9,9 +9,12 @@ import { Component, input, output } from '@angular/core';
 })
 export class Button {
   public variant = input<"primary" | "secondary" | "text">("primary")
-  public press = output<void>()
+  public press = output<void>();
+  public iconBefore = input<string>();
+  public iconAfter = input<string>();
 
   protected onClick() {
     this.press.emit();
+    console.log(this.iconAfter())
   }
 }

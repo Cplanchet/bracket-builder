@@ -2,5 +2,11 @@
   <h2>Add Teams</h2>
   <bb-team-list [teams]="this.teams()" (delete)="deleteTeam($event)"></bb-team-list>
   <bb-textfield id="team" [(value)]="this.fieldValue" label="Team name" [error]="fieldError()"></bb-textfield>
-  <bb-button (press)="this.onSubmitEntry()">Add Team</bb-button>
+  <div class="button-row">
+    <bb-button (press)="this.onSubmitEntry()">Add Team</bb-button>
+    @if(this.teams().length > 0){
+    <bb-button iconAfter="arrow_forward" variant="secondary">Continue</bb-button>
+    }
+  </div>
+  <span class="scroll-target" #scrollTarget></span>
 </main>

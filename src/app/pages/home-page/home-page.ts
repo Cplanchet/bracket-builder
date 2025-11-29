@@ -1,9 +1,9 @@
-import { Component, signal } from '@angular/core';
+import { Component, ElementRef, signal, viewChild, ViewChild } from '@angular/core';
 import { TeamList } from '../../components/team-list/team-list';
 import { FormsModule } from '@angular/forms';
 import { Textfield } from "../../components/textfield/textfield";
 import { Button } from '../../components/button/button';
-import { IconButton } from '../../components/icon-button/icon-button';
+import { IconButton } from "../../components/icon-button/icon-button";
 
 @Component({
   selector: 'bb-home-page',
@@ -15,6 +15,7 @@ export class HomePage {
   public teams = signal<string[]>([]);
   public fieldValue = signal<string>('');
   public fieldError = signal<string>('');
+  public scrollTarget = viewChild.required<ElementRef<HTMLSpanElement>>('scrollTarget');
 
   public onSubmitEntry() {
     if (!this.validateFieldEntry()) {
@@ -22,6 +23,7 @@ export class HomePage {
     }
     this.teams.update((teams) => [...teams, this.fieldValue()]);
     this.clearFieldValues();
+    this.scrollTarget().nativeElement.scrollIntoView();
   }
 
   private validateFieldEntry() {

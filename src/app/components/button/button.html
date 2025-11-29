@@ -1,3 +1,11 @@
 <button class="bb-button" [ngClass]="`bb-${variant()}`" (click)="onClick()">
-  <ng-content></ng-content>
+  <div class="bb-button-content">
+    @if(this.iconBefore()){
+    <span class="material-symbols-outlined">{{ this.iconBefore() }}</span>
+    }
+    <ng-content></ng-content>
+    @if(this.iconAfter()){
+    <span class="material-symbols-outlined">{{ this.iconAfter() }}</span>
+    }
+  </div>
 </button>
