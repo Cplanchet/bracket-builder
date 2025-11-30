@@ -1,8 +1,11 @@
-import { Component, ElementRef, signal, viewChild, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild, ViewChild } from '@angular/core';
 import { TeamList } from '../../components/team-list/team-list';
 import { FormsModule } from '@angular/forms';
 import { Textfield } from "../../components/textfield/textfield";
 import { Button } from '../../components/button/button';
+import { BracketService } from '../../services/bracket-service';
+import { NavigationUtil, Page } from '../../utils/navigation-util';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'bb-home-page',
@@ -15,6 +18,10 @@ export class HomePage {
   public fieldValue = signal<string>('');
   public fieldError = signal<string>('');
   public scrollTarget = viewChild.required<ElementRef<HTMLSpanElement>>('scrollTarget');
+  public bracketService = inject(BracketService);
+
+  private router = inject(Router);
+  private navigationUtil = new NavigationUtil(this.router);
 
   public onSubmitEntry() {
     if (!this.validateFieldEntry()) {
@@ -44,5 +51,10 @@ export class HomePage {
 
   protected deleteTeam(team: string) {
     this.teams.update(teams => teams.filter(t => t !== team))
+  }
+
+  protected submit() {
+    this.bracketService.saveTeams(this.teams())
+    this.navigationUtil.navigateTo(Page.BRACKET);
   }
 }

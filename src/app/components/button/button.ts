@@ -15,6 +15,5 @@ export class Button {
 
   protected onClick() {
     this.press.emit();
-    console.log(this.iconAfter())
   }
 }
