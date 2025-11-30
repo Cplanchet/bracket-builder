@@ -4,7 +4,7 @@
   <bb-textfield id="team" [(value)]="this.fieldValue" label="Team name" [error]="fieldError()"></bb-textfield>
   <div class="button-row">
     <bb-button (press)="this.onSubmitEntry()">Add Team</bb-button>
-    @if(this.teams().length > 0){
+    @if(this.teams().length > 1){
     <bb-button iconAfter="arrow_forward" variant="secondary">Continue</bb-button>
     }
   </div>
