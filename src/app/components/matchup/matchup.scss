@@ -1,0 +1,28 @@
+.bb-matchup-root {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--on-background);
+  justify-content: center;
+  align-items: center;
+  .team {
+    text-align: center;
+    flex: 1;
+    padding: 0.5rem;
+    transition: background 0.1s ease-out;
+    .bb-matchup-button {
+      background: none;
+      outline: none;
+      border: none;
+      color: var(--on-background);
+      &:hover {
+        background-color: var(--on-background-shadow-darker);
+      }
+    }
+    &.winner {
+      background: fixed var(--primary);
+      color: var(--on-primary);
+    }
+  }
+}

@@ -11,8 +11,7 @@ export class Matchup {
   public setWinner(winner: string | null) {
     if (!winner) {
       this.winner = null
-    }
-    if (winner === this.teamOne) {
+    } else if (winner === this.teamOne) {
       this.winner = this.teamOne;
     } else if (winner === this.teamTwo) {
       this.winner = this.teamTwo;

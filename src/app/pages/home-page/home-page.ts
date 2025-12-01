@@ -52,7 +52,7 @@ export class HomePage {
   }
 
   protected submit() {
-    this.bracketService.saveTeams(this.teams())
+    this.bracketService.saveTeamsAsBracket(this.teams())
     this.navigationUtil.navigateTo(Page.BRACKET);
   }
 }

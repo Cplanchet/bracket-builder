@@ -1,0 +1,9 @@
+<div class="bb-matchup-root">
+  <div class="team" [ngClass]="winner() === teamOne() ? 'winner' : ''">
+    <bb-button (press)="onTeamPress('1')" variant="text">{{ teamOne() }}</bb-button>
+  </div>
+  <div class="vs-text">VS.</div>
+  <div class="team" [ngClass]="winner() === teamTwo() ? 'winner' : ''">
+    <bb-button (press)="onTeamPress('2')" variant="text">{{ teamTwo() }}</bb-button>
+  </div>
+</div>

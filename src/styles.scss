@@ -16,6 +16,9 @@
     --background-shadow-darker: hsl(0, 0%, 0%);
     --on-background: rgb(255, 255, 255);
     --error: rgb(177, 20, 20);
+    --success: hsl(120, 71%, 42%);
+    --shadow: rgb(0, 0, 0, 0.25);
+    --shadow-darker: rgb(0, 0, 0, 0.5);
   }
 }
 
@@ -30,6 +33,9 @@
     --background-shadow-darker: hsl(0, 0%, 90%);
     --on-background: rgb(0, 0, 0);
     --error: rgb(177, 20, 20);
+    --success: hsl(120, 71%, 42%);
+    --shadow: rgb(0, 0, 0, 0.25);
+    --shadow-darker: rgb(0, 0, 0, 0.5);
   }
 }
 
@@ -50,4 +56,11 @@ body {
 
 .bb-button .button-content .material-symbols-outlined {
   font-size: 18px;
+}
+
+.bb-matchup-root .team button {
+  color: var(--on-background);
+}
+.bb-matchup-root .team.winner button {
+  color: var(--on-primary);
 }

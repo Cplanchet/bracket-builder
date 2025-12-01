@@ -1,6 +1,8 @@
-@for(item of bracketData()?.matchups; track $index){
-<ol>
-  <li>{{item.teamOne}}</li>
-  <li>{{item.teamTwo}}</li>
-</ol>
-}
+<main class="page">
+  <div class="matchup-container">
+    @for(item of bracketData()?.matchups; track $index){
+    <bb-matchup [team-one]="item.teamOne" [team-two]="item.teamTwo" [winner]="item.winner"
+      (winner-change)="onWinnerChange($index, $event)"></bb-matchup>
+    }
+  </div>
+</main>

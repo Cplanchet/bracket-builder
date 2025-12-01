@@ -29,28 +29,29 @@
     color: var(--on-background);
     &:hover {
       border-color: var(--primary-shadow);
+      background-color: var(--background-shadow);
     }
     &:active {
       border-color: var(--primary-shadow-darker);
+      background-color: var(--background-shadow-darker);
     }
   }
 
   .bb-text,
   .bb-secondary {
     background: none;
-    color: var(--on-background);
-
-    &:hover {
-      background-color: var(--background-shadow);
-    }
-    &:active {
-      background-color: var(--background-shadow-darker);
-    }
   }
 
   .bb-text {
     border: none;
     box-shadow: none;
+    color: var(--primary);
+    &:hover {
+      background-color: var(--shadow);
+    }
+    &:active {
+      background-color: var(--shadow-darker);
+    }
   }
 }
 
