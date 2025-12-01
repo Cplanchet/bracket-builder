@@ -1,1 +1,6 @@
-<p>{{ this.data$ | async }}</p>
+@for(item of bracketData()?.matchups; track $index){
+<ol>
+  <li>{{item.teamOne}}</li>
+  <li>{{item.teamTwo}}</li>
+</ol>
+}

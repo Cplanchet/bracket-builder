@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Bracket } from '../models/bracket';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BracketService {
   private _teams: string[] = [];
-  public teams$: BehaviorSubject<string[]> = new BehaviorSubject(this._teams);
+  public teams$: BehaviorSubject<Bracket> = new BehaviorSubject(new Bracket(this._teams));
 
   public saveTeams(teams: string[]) {
     if (teams.length < 2) {
@@ -17,6 +18,6 @@ export class BracketService {
   }
 
   private updateSubject() {
-    this.teams$.next(this._teams);
+    this.teams$.next(new Bracket(this._teams));
   }
 }

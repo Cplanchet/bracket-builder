@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, input, model } from '@angular/core';
+import { Component, Input, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'bb-textfield',
@@ -14,7 +14,13 @@ export class Textfield {
   public error = input<string>();
   public value = model<string>();
 
+  public enterPress = output<void>();
+
   public onChange($event: Event) {
     this.value.set(($event?.target as HTMLInputElement).value)
+  }
+
+  public onPressEnter() {
+    this.enterPress.emit();
   }
 }

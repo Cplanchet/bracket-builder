@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Textfield } from "../../components/textfield/textfield";
 import { Button } from '../../components/button/button';
 import { BracketService } from '../../services/bracket-service';
-import { NavigationUtil, Page } from '../../utils/navigation-util';
-import { Router } from '@angular/router';
+import { NavigationService, Page } from '../../navigation-service';
 
 @Component({
   selector: 'bb-home-page',
@@ -20,8 +19,7 @@ export class HomePage {
   public scrollTarget = viewChild.required<ElementRef<HTMLSpanElement>>('scrollTarget');
   public bracketService = inject(BracketService);
 
-  private router = inject(Router);
-  private navigationUtil = new NavigationUtil(this.router);
+  private navigationUtil = inject(NavigationService);
 
   public onSubmitEntry() {
     if (!this.validateFieldEntry()) {
