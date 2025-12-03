@@ -4,10 +4,11 @@ import { Bracket } from '../../models/bracket';
 import { NavigationService, Page } from '../../navigation-service';
 import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Matchup } from '../../components/matchup/matchup';
+import { Button } from '../../components/button/button';
 
 @Component({
   selector: 'bb-bracket-page',
-  imports: [Matchup],
+  imports: [Matchup, Button],
   templateUrl: './bracket-page.html',
   styleUrl: './bracket-page.scss',
 })
@@ -36,6 +37,14 @@ export class BracketPage implements OnInit, OnDestroy {
 
     if (copy) {
       this.bracketService.saveBracket(copy);
+    }
+
+  }
+
+  onNextButtonPress() {
+    const nextTier = this.bracketData()?.calculateNextTier()
+    if (nextTier) {
+      this.bracketService.saveBracket(nextTier)
     }
 
   }

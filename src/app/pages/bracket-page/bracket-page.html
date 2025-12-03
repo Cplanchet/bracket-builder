@@ -5,4 +5,8 @@
       (winner-change)="onWinnerChange($index, $event)"></bb-matchup>
     }
   </div>
+  @if(bracketData()?.calculateNextTier() !== null) {
+  <bb-button (press)="onNextButtonPress()" variant="secondary">Next</bb-button>
+  }
+
 </main>
