@@ -5,5 +5,5 @@ import { BracketPage } from './pages/bracket-page/bracket-page';
 export const routes: Routes = [
   { path: 'home', component: HomePage },
   { path: 'bracket', component: BracketPage },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', redirectTo: 'home' },
 ];

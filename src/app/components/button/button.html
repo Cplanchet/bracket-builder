@@ -1,12 +1,17 @@
-<button class="bb-button" [ngClass]="`bb-${variant()}`" (click)="onClick()" (keydown.enter)="onClick()"
-  (keydown.space)="onClick()">
+<button
+  class="bb-button"
+  [ngClass]="`bb-${variant()}`"
+  (click)="onClick()"
+  (keydown.enter)="onClick()"
+  (keydown.space)="onClick()"
+>
   <div class="bb-button-content">
-    @if(this.iconBefore()){
-    <span class="material-symbols-outlined">{{ this.iconBefore() }}</span>
+    @if (this.iconBefore()) {
+      <span class="material-symbols-outlined">{{ this.iconBefore() }}</span>
     }
     <ng-content></ng-content>
-    @if(this.iconAfter()){
-    <span class="material-symbols-outlined">{{ this.iconAfter() }}</span>
+    @if (this.iconAfter()) {
+      <span class="material-symbols-outlined">{{ this.iconAfter() }}</span>
     }
   </div>
 </button>

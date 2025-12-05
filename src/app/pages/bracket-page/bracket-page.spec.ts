@@ -8,9 +8,8 @@ describe('BracketPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BracketPage]
-    })
-    .compileComponents();
+      imports: [BracketPage],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BracketPage);
     component = fixture.componentInstance;

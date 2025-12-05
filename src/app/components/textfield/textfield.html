@@ -1,8 +1,15 @@
 <div class="bb-textfield-root">
   <label [for]="id()" class="bb-textfield-label">{{ label() }}</label>
-  <input class="bb-textfield-input" type="text" [id]="id()" [ngClass]="this.error() ? 'error' : ''"
-    (input)="onChange($event)" [value]="value()" (keydown.enter)="onPressEnter()" />
+  <input
+    class="bb-textfield-input"
+    type="text"
+    [id]="id()"
+    [ngClass]="this.error() ? 'error' : ''"
+    (input)="onChange($event)"
+    [value]="value()"
+    (keydown.enter)="onPressEnter()"
+  />
   @if (error()) {
-  <span class="inline-error">{{ error() }}</span>
+    <span class="inline-error">{{ error() }}</span>
   }
 </div>

@@ -12,13 +12,13 @@ export class Matchup {
   public teamOne = input.required<string>({ alias: 'team-one' });
   public teamTwo = input.required<string>({ alias: 'team-two' });
   public winner = input<string | null>();
-  public winnerChange = output<string | null>({ alias: 'winner-change' })
+  public winnerChange = output<string | null>({ alias: 'winner-change' });
 
-  onTeamPress(team: "1" | "2" | null) {
+  onTeamPress(team: '1' | '2' | null) {
     if (team) {
-      this.winnerChange.emit(team === "1" ? this.teamOne() : this.teamTwo());
+      this.winnerChange.emit(team === '1' ? this.teamOne() : this.teamTwo());
       return;
     }
-    this.winnerChange.emit(null)
+    this.winnerChange.emit(null);
   }
 }

@@ -10,13 +10,12 @@ export class Matchup {
 
   public setWinner(winner: string | null) {
     if (!winner) {
-      this.winner = null
+      this.winner = null;
     } else if (winner === this.teamOne) {
       this.winner = this.teamOne;
     } else if (winner === this.teamTwo) {
       this.winner = this.teamTwo;
-    }
-    else {
+    } else {
       throw new Error(`winner must be one of the teams in the matchup, recieved ${winner}`);
     }
   }

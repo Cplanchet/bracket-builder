@@ -9,5 +9,5 @@ import { NgClass } from '@angular/common';
   styleUrl: './icon-button.scss',
 })
 export class IconButton extends Button {
-  public icon = input.required<string>()
+  public icon = input.required<string>();
 }

@@ -8,7 +8,7 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './button.scss',
 })
 export class Button {
-  public variant = input<"primary" | "secondary" | "text">("primary")
+  public variant = input<'primary' | 'secondary' | 'text'>('primary');
   public press = output<void>();
   public iconBefore = input<string>();
   public iconAfter = input<string>();

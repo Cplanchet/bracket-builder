@@ -10,14 +10,14 @@ import { Component, Input, input, model, output } from '@angular/core';
 export class Textfield {
   public id = input.required<string>();
   public label = input<string>();
-  public variant = input<'primary' | 'secondary'>('primary')
+  public variant = input<'primary' | 'secondary'>('primary');
   public error = input<string>();
   public value = model<string>();
 
   public enterPress = output<void>();
 
   public onChange($event: Event) {
-    this.value.set(($event?.target as HTMLInputElement).value)
+    this.value.set(($event?.target as HTMLInputElement).value);
   }
 
   public onPressEnter() {

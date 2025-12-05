@@ -8,11 +8,11 @@ export class NavigationService {
   private router = inject(Router);
 
   public navigateTo(page: Page) {
-    this.router.navigate([page.toString()])
+    this.router.navigate([page.toString()]);
   }
 }
 
 export enum Page {
   HOME = 'home',
-  BRACKET = 'bracket'
+  BRACKET = 'bracket',
 }

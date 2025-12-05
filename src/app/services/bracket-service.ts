@@ -12,9 +12,9 @@ export class BracketService {
 
   public saveTeamsAsBracket(teams: string[]) {
     if (teams.length < 2) {
-      throw new Error(`Must be a list of 2 or more teams got list: ${teams.toString()}`)
+      throw new Error(`Must be a list of 2 or more teams got list: ${teams.toString()}`);
     }
-    this.setTeamsAndBracket(teams)
+    this.setTeamsAndBracket(teams);
     this.updateSubject();
   }
 
@@ -23,7 +23,7 @@ export class BracketService {
   }
 
   private updateSubject() {
-    this._bracket = new Bracket(this._teams)
+    this._bracket = new Bracket(this._teams);
     this.teams$.next(this._bracket);
   }
 
@@ -32,7 +32,7 @@ export class BracketService {
       return;
     }
     this._teams = teams;
-    this.setBracket(new Bracket(this._teams))
+    this.setBracket(new Bracket(this._teams));
   }
 
   private setBracket(bracket: Bracket) {
@@ -40,6 +40,6 @@ export class BracketService {
       return;
     }
     this._bracket = bracket;
-    this.teams$.next(this._bracket)
+    this.teams$.next(this._bracket);
   }
 }

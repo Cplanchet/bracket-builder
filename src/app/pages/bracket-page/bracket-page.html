@@ -1,12 +1,15 @@
 <main class="page">
   <div class="matchup-container">
-    @for(item of bracketData()?.matchups; track $index){
-    <bb-matchup [team-one]="item.teamOne" [team-two]="item.teamTwo" [winner]="item.winner"
-      (winner-change)="onWinnerChange($index, $event)"></bb-matchup>
+    @for (item of bracketData()?.matchups; track $index) {
+      <bb-matchup
+        [team-one]="item.teamOne"
+        [team-two]="item.teamTwo"
+        [winner]="item.winner"
+        (winner-change)="onWinnerChange($index, $event)"
+      ></bb-matchup>
     }
   </div>
-  @if(bracketData()?.calculateNextTier() !== null) {
-  <bb-button (press)="onNextButtonPress()" variant="secondary">Next</bb-button>
+  @if (bracketData()?.calculateNextTier() !== null) {
+    <bb-button (press)="onNextButtonPress()" variant="secondary">Next</bb-button>
   }
-
 </main>

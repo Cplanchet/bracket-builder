@@ -19,11 +19,11 @@ export class BracketPage implements OnInit, OnDestroy {
   public bracketData = signal<Bracket | null>(null);
 
   ngOnInit(): void {
-    this.bracketService.teams$.pipe(takeUntil(this.onDestroy$)).subscribe(item => {
+    this.bracketService.teams$.pipe(takeUntil(this.onDestroy$)).subscribe((item) => {
       this.bracketData.set(item);
     });
     if (this.bracketData()?.matchups && this.bracketData()!.matchups!.length < 1) {
-      this.navService.navigateTo(Page.HOME)
+      this.navService.navigateTo(Page.HOME);
     }
   }
 
@@ -38,14 +38,12 @@ export class BracketPage implements OnInit, OnDestroy {
     if (copy) {
       this.bracketService.saveBracket(copy);
     }
-
   }
 
   onNextButtonPress() {
-    const nextTier = this.bracketData()?.calculateNextTier()
+    const nextTier = this.bracketData()?.calculateNextTier();
     if (nextTier) {
-      this.bracketService.saveBracket(nextTier)
+      this.bracketService.saveBracket(nextTier);
     }
-
   }
 }

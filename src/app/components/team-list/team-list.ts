@@ -8,7 +8,7 @@ import { IconButton } from '../icon-button/icon-button';
   styleUrl: './team-list.scss',
 })
 export class TeamList {
-  public teams = input.required<string[]>()
+  public teams = input.required<string[]>();
   public delete = output<string>();
 
   protected onDeleteButtonPress(name: string) {

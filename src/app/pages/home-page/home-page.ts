@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, signal, viewChild, ViewChild } from '@angular/core';
 import { TeamList } from '../../components/team-list/team-list';
 import { FormsModule } from '@angular/forms';
-import { Textfield } from "../../components/textfield/textfield";
+import { Textfield } from '../../components/textfield/textfield';
 import { Button } from '../../components/button/button';
 import { BracketService } from '../../services/bracket-service';
 import { NavigationService, Page } from '../../navigation-service';
@@ -48,11 +48,11 @@ export class HomePage {
   }
 
   protected deleteTeam(team: string) {
-    this.teams.update(teams => teams.filter(t => t !== team))
+    this.teams.update((teams) => teams.filter((t) => t !== team));
   }
 
   protected submit() {
-    this.bracketService.saveTeamsAsBracket(this.teams())
+    this.bracketService.saveTeamsAsBracket(this.teams());
     this.navigationUtil.navigateTo(Page.BRACKET);
   }
 }
