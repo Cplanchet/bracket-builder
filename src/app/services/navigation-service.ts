@@ -15,4 +15,5 @@ export class NavigationService {
 export enum Page {
   HOME = 'home',
   BRACKET = 'bracket',
+  WINNER = 'winner',
 }

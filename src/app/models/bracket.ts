@@ -5,6 +5,9 @@ export class Bracket {
   public matchups: Matchup[];
 
   constructor(teams: string[]) {
+    if (teams.length < 2) {
+      throw Error('Cannot create a bracket with fewer than 2 teams');
+    }
     this.matchups = [];
     this.extra = teams.length % 2 == 0 ? null : teams[0];
 
@@ -20,6 +23,9 @@ export class Bracket {
     const nextTierTeams = this.matchups.map((match) => match.winner!);
     if (this.extra) {
       nextTierTeams.push(this.extra);
+    }
+    if (nextTierTeams.length < 2) {
+      return null;
     }
     return new Bracket(nextTierTeams);
   }

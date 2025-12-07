@@ -12,4 +12,5 @@
   @if (bracketData()?.calculateNextTier() !== null) {
     <bb-button (press)="onNextButtonPress()" variant="secondary">Next</bb-button>
   }
+  {{ this.winner() }}
 </main>

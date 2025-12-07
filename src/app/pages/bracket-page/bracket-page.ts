@@ -1,8 +1,9 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal, effect } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { BracketService } from '../../services/bracket-service';
 import { Bracket } from '../../models/bracket';
-import { NavigationService, Page } from '../../navigation-service';
-import { Observable, Subject, Subscription, takeUntil } from 'rxjs';
+import { NavigationService, Page } from '../../services/navigation-service';
+import { Subject, takeUntil } from 'rxjs';
 import { Matchup } from '../../components/matchup/matchup';
 import { Button } from '../../components/button/button';
 
@@ -17,12 +18,19 @@ export class BracketPage implements OnInit, OnDestroy {
   private navService = inject(NavigationService);
   private onDestroy$: Subject<void> = new Subject();
   public bracketData = signal<Bracket | null>(null);
+  public winner = toSignal(this.bracketService.winner$);
+
+  private navigateOnWin = effect(() => {
+    if (this.winner()) {
+      this.navService.navigateTo(Page.WINNER);
+    }
+  });
 
   ngOnInit(): void {
     this.bracketService.teams$.pipe(takeUntil(this.onDestroy$)).subscribe((item) => {
       this.bracketData.set(item);
     });
-    if (this.bracketData()?.matchups && this.bracketData()!.matchups!.length < 1) {
+    if (!this.bracketData()) {
       this.navService.navigateTo(Page.HOME);
     }
   }
@@ -32,8 +40,7 @@ export class BracketPage implements OnInit, OnDestroy {
   }
 
   onWinnerChange(index: number, winner: string | null) {
-    const copy = this.bracketData();
-    copy?.matchups[index].setWinner(winner);
+    const copy = this.bracketData()?.matchups[index].setWinner(winner);
 
     if (copy) {
       this.bracketService.saveBracket(copy);
@@ -42,6 +49,7 @@ export class BracketPage implements OnInit, OnDestroy {
 
   onNextButtonPress() {
     const nextTier = this.bracketData()?.calculateNextTier();
+    console.log(JSON.stringify(nextTier));
     if (nextTier) {
       this.bracketService.saveBracket(nextTier);
     }

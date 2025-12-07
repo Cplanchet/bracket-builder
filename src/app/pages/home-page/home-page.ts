@@ -1,10 +1,10 @@
-import { Component, ElementRef, inject, signal, viewChild, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
 import { TeamList } from '../../components/team-list/team-list';
 import { FormsModule } from '@angular/forms';
 import { Textfield } from '../../components/textfield/textfield';
 import { Button } from '../../components/button/button';
 import { BracketService } from '../../services/bracket-service';
-import { NavigationService, Page } from '../../navigation-service';
+import { NavigationService, Page } from '../../services/navigation-service';
 
 @Component({
   selector: 'bb-home-page',
