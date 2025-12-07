@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Button } from '../button/button';
 import { NgClass } from '@angular/common';
 

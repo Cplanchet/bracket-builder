@@ -1,17 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Matchup } from './matchup';
+import { inputBinding, signal } from '@angular/core';
 
 describe('Matchup', () => {
   let component: Matchup;
   let fixture: ComponentFixture<Matchup>;
+  const teamOneBoundValue = signal('team1');
+  const teamTwoBoundValue = signal('team2');
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Matchup],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Matchup);
+    fixture = TestBed.createComponent(Matchup, {
+      bindings: [
+        inputBinding('team-one', teamOneBoundValue),
+        inputBinding('team-two', teamTwoBoundValue),
+      ],
+    });
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

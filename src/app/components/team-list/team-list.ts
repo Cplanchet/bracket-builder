@@ -11,7 +11,7 @@ export class TeamList {
   public teams = input.required<string[]>();
   public delete = output<string>();
 
-  protected onDeleteButtonPress(name: string) {
+  public onDeleteButtonPress(name: string) {
     if (name) {
       this.delete.emit(name);
     }

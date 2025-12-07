@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, input, model, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'bb-textfield',
