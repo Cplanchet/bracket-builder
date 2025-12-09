@@ -1,6 +1,6 @@
 export class Matchup {
-  public teamOne: string;
-  public teamTwo: string;
+  public readonly teamOne: string;
+  public readonly teamTwo: string;
   public winner: string | null = null;
 
   constructor(teamOne: string, teamTwo: string) {
@@ -16,7 +16,7 @@ export class Matchup {
     } else if (winner === this.teamTwo) {
       this.winner = this.teamTwo;
     } else {
-      throw new Error(`winner must be one of the teams in the matchup, recieved ${winner}`);
+      throw new Error(`winner must be one of the teams in the matchup, received ${winner}`);
     }
   }
 }

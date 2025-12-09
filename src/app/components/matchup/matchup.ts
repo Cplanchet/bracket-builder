@@ -14,11 +14,8 @@ export class Matchup {
   public winner = input<string | null>();
   public winnerChange = output<string | null>({ alias: 'winner-change' });
 
-  onTeamPress(team: '1' | '2' | null) {
-    if (team) {
-      this.winnerChange.emit(team === '1' ? this.teamOne() : this.teamTwo());
-      return;
-    }
-    this.winnerChange.emit(null);
+  protected onTeamPress(team: '1' | '2') {
+    this.winnerChange.emit(team === '1' ? this.teamOne() : this.teamTwo());
+    return;
   }
 }
