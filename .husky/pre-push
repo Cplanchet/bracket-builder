@@ -1,1 +1,1 @@
-ng test --no-browsers
+ng test --no-watch --browsers=ChromeHeadless
