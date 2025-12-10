@@ -47,11 +47,11 @@ export class HomePage {
     this.fieldError.set('');
   }
 
-  protected deleteTeam(team: string) {
+  public deleteTeam(team: string) {
     this.teams.update((teams) => teams.filter((t) => t !== team));
   }
 
-  protected submit() {
+  public submit() {
     this.bracketService.saveTeamsAsBracket(this.teams());
     this.navigationUtil.navigateTo(Page.BRACKET);
   }

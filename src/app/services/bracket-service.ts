@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Bracket } from '../models/bracket';
 
 @Injectable({
@@ -9,8 +9,11 @@ export class BracketService {
   private _teams: string[] = [];
   private _bracket: Bracket | null = null;
   private _winner: string | null = null;
-  public readonly teams$: BehaviorSubject<Bracket | null> = new BehaviorSubject(this._bracket);
-  public readonly winner$: BehaviorSubject<string | null> = new BehaviorSubject(this._winner);
+  private _teams$: BehaviorSubject<Bracket | null> = new BehaviorSubject(this._bracket);
+  private _winner$: BehaviorSubject<string | null> = new BehaviorSubject(this._winner);
+
+  public readonly teams$: Observable<Bracket | null> = this._teams$.asObservable();
+  public readonly winner$: Observable<string | null> = this._winner$.asObservable();
 
   public saveTeamsAsBracket(teams: string[]) {
     if (teams.length < 2) {
@@ -20,31 +23,24 @@ export class BracketService {
   }
 
   public saveBracket(bracket: Bracket) {
-    if (bracket) {
-      this.setBracket(bracket);
-      this.checkforWinner();
-    }
+    this.setBracket(bracket);
+    this.checkForWinner();
   }
 
   private setTeamsAndBracket(teams: string[]) {
-    if (teams === this._teams) {
-      return;
-    }
     this._teams = teams;
     this.setBracket(new Bracket(this._teams));
   }
 
   private setBracket(bracket: Bracket) {
     this._bracket = bracket;
-    this.teams$.next(this._bracket);
+    this._teams$.next(this._bracket);
   }
 
-  private checkforWinner() {
-    console.log('checking...');
+  private checkForWinner() {
     if (!this._bracket?.calculateNextTier() && this._bracket?.matchups[0].winner) {
       this.setWinner(this._bracket.matchups[0].winner);
     }
-    console.log('None found');
   }
 
   private setWinner(winner: string) {
@@ -52,6 +48,6 @@ export class BracketService {
       return;
     }
     this._winner = winner;
-    this.winner$.next(this._winner);
+    this._winner$.next(this._winner);
   }
 }
