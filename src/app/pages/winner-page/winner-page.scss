@@ -1,0 +1,56 @@
+.winner {
+  font-size: 0;
+  animation:
+    winner-grow 2s cubic-bezier(0.53, 0.52, 0.69, 1.73) 1s 1 normal forwards,
+    winner-dance 1s linear 3s 1 normal none;
+}
+
+.reset-button {
+  opacity: 0%;
+  animation: button-fadeIn 0.5s linear 5s 1 normal forwards;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes winner-grow {
+  from {
+    font-size: 0;
+  }
+  to {
+    font-size: 5rem;
+  }
+}
+
+@keyframes winner-dance {
+  0% {
+    transform: rotate(0deg);
+    font-size: 5rem;
+  }
+  20% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+    font-size: 6rem;
+  }
+  80% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    font-size: 5rem;
+  }
+}
+@keyframes button-fadeIn {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}

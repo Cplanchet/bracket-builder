@@ -38,8 +38,11 @@ export class BracketService {
   }
 
   private checkForWinner() {
-    if (!this._bracket?.calculateNextTier() && this._bracket?.matchups[0].winner) {
-      this.setWinner(this._bracket.matchups[0].winner);
+    if (
+      this._bracket?.matchups.every((bracket) => bracket.winner) &&
+      !this._bracket?.calculateNextTier()
+    ) {
+      this.setWinner(this._bracket.matchups[0].winner!);
     }
   }
 

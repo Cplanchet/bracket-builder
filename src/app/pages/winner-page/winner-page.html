@@ -1,3 +1,5 @@
 <main class="page">
   <h2>The Winner is...</h2>
+  <p class="winner">{{ bracketService.winner$ | async }}</p>
+  <bb-button class="reset-button" (press)="onHomeButtonPress()">Back to Home</bb-button>
 </main>

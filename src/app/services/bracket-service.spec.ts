@@ -45,7 +45,7 @@ describe('BracketService', () => {
       });
     });
 
-    it('should emit a winner if there is no next tier in the bracket and the matchup has a winner', () => {
+    it('should emit a winner if all matchups have winners and there is no next tier in the bracket', () => {
       const mockBracket = new Bracket(['1', '2']);
       mockBracket.matchups[0].setWinner('1');
 
