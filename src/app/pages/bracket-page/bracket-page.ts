@@ -40,8 +40,8 @@ export class BracketPage implements OnInit, OnDestroy {
   }
 
   onWinnerChange(index: number, winner: string | null) {
-    const copy = this.bracketData()?.matchups[index].setWinner(winner);
-
+    this.bracketData()?.matchups[index].setWinner(winner);
+    const copy = this.bracketData();
     if (copy) {
       this.bracketService.saveBracket(copy);
     }
@@ -49,7 +49,6 @@ export class BracketPage implements OnInit, OnDestroy {
 
   onNextButtonPress() {
     const nextTier = this.bracketData()?.calculateNextTier();
-    console.log(JSON.stringify(nextTier));
     if (nextTier) {
       this.bracketService.saveBracket(nextTier);
     }
