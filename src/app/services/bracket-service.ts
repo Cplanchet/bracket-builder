@@ -27,12 +27,18 @@ export class BracketService {
     this.checkForWinner();
   }
 
+  public reset() {
+    this._teams = [];
+    this.setWinner(null);
+    this.setBracket(null);
+  }
+
   private setTeamsAndBracket(teams: string[]) {
     this._teams = teams;
     this.setBracket(new Bracket(this._teams));
   }
 
-  private setBracket(bracket: Bracket) {
+  private setBracket(bracket: Bracket | null) {
     this._bracket = bracket;
     this._teams$.next(this._bracket);
   }
@@ -46,7 +52,7 @@ export class BracketService {
     }
   }
 
-  private setWinner(winner: string) {
+  private setWinner(winner: string | null) {
     if (this._winner === winner) {
       return;
     }

@@ -15,6 +15,7 @@ export class WinnerPage {
   public navigationService = inject(NavigationService);
 
   public onHomeButtonPress() {
+    this.bracketService.reset();
     this.navigationService.navigateTo(Page.HOME);
   }
 }
